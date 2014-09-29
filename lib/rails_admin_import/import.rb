@@ -74,8 +74,8 @@ module RailsAdminImport
           end
   
           map = {}
-   
-          file = CSV.new(clean)
+
+          file = CSV.new(clean, col_sep: params[:separator])
           file.readline.each_with_index do |key, i|
             if self.many_fields.include?(key.to_sym)
               map[key.to_sym] ||= []
